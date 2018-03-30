@@ -294,7 +294,7 @@ class PushPropertiesJob(Job):
 class PushNodeLabelsJob(Job):
 
     def __init__(self, node, labels):
-        Job.__init__(self, "PUT", Target(node, "labels"), set(labels))
+        Job.__init__(self, "PUT", Target(node, "labels"), list(set(labels)))
 
 
 class CreateNodeJob(Job):
@@ -359,7 +359,7 @@ class DeletePropertiesJob(Job):
 class AddNodeLabelsJob(Job):
 
     def __init__(self, node, *labels):
-        Job.__init__(self, "POST", Target(node, "labels"), set(labels))
+        Job.__init__(self, "POST", Target(node, "labels"), list(set(labels)))
 
 
 class RemoveNodeLabelJob(Job):
